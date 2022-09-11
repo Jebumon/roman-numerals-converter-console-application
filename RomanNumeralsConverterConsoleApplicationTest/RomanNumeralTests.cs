@@ -99,5 +99,21 @@ namespace RomanNumeralsConverterConsoleApplicationTests
         {
             RomanNumeralsConverter.ConvertRomanNumber("M").Should().Be(1000);
         }
+
+        [Test]
+
+        public void Roman_Number_null_Should_Return_ArgumentException()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => RomanNumeralsConverter.ConvertRomanNumber(""));
+            Assert.That(ex.Message, Is.EqualTo("Roman number can't be null"));
+        }
+
+        [Test]
+
+        public void Roman_Number_Invalid_Should_Return_ArgumentException()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => RomanNumeralsConverter.ConvertRomanNumber("adfj"));
+            Assert.That(ex.Message, Is.EqualTo("Please enter a valid Roman number"));
+        }
     }
 }

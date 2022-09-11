@@ -1,6 +1,4 @@
 ﻿using RomanNumeralsConverterConsoleApplication.PredefinedValues;
-//using RomanNumeralsConverterConsoleApplication.Exceptions;
-//using RomanNumeralsConverterConsoleApplication.Modules;
 namespace RomanNumeralsConverterConsoleApplication
 {
     public class RomanNumeralsConverter
@@ -19,6 +17,7 @@ namespace RomanNumeralsConverterConsoleApplication
             if (romanNumber == null|| romanNumber == "")
             {
                 Console.WriteLine("Roman number can't be null");
+                throw new ArgumentException(message: "Roman number can't be null");
             }
             else
             {
@@ -36,7 +35,8 @@ namespace RomanNumeralsConverterConsoleApplication
                     catch
                     {
                         Console.WriteLine("Please enter a valid Roman number");
-                        romanDigits= null;
+                        throw new ArgumentException(message: "Please enter a valid Roman number");
+                        romanDigits = null;
                         digitValues.Clear();
                         break;
                     }
